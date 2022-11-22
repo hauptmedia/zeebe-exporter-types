@@ -14,5 +14,5 @@
  * limitations under the License.
  */
 export * from './types'
-export * from './lib/createZeebeRecordHandlerMap'
+export * from './lib/dispatchZeebeRecordToHandler'
 export * from './lib/NoOpZeebeRecordHandler'
