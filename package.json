@@ -1,21 +1,24 @@
 {
   "name": "@hauptmedia/zeebe-exporter-types",
-  "version": "0.0.3",
+  "version": "0.0.8",
   "description": "Typescript type definitions for JSON encoded export data used by the Zeebe Workflow Automation Engine.",
   "author": {
     "name": "Julian Haupt",
     "email": "julian@haupt.media"
   },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "exports": {
-    "import": "./esm/index.js",
-    "require": "./cjs/index.js"
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
   },
   "files": [
-    "esm",
-    "cjs",
-    "doc",
+    "dist",
     "LICENSE",
-    "README.md"
+    "README.md",
+    "!**/*.tsbuildinfo"
   ],
   "repository": "https://github.com/hauptmedia/zeebe-exporter-types",
   "license": "Apache-2.0",
@@ -34,12 +37,11 @@
   ],
   "scripts": {
     "build": "run-s clean build:esm build:cjs build:doc build:copyfiles",
-    "build:copyfiles": "shx cp LICENSE README.md package.json dist",
+    "build:copyfiles": "shx cp package.cjs.json dist/cjs/package.json && shx cp package.esm.json dist/esm/package.json",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:doc": "typedoc src/ --exclude **/*.spec.ts --target es2018 --mode file --out dist/docs",
-    "prepublish": "run-s build",
-    "publish": "cd dist && npm publish --access public",
+    "npmpublish": "run-s build && npm publish --access public",
     "clean": "shx rm -rf dist/",
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "fix:lint": "eslint src --ext .ts --fix"
