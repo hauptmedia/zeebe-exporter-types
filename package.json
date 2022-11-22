@@ -1,6 +1,6 @@
 {
   "name": "@hauptmedia/zeebe-exporter-types",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Typescript type definitions for JSON encoded export data used by the Zeebe Workflow Automation Engine.",
   "author": {
     "name": "Julian Haupt",
@@ -10,6 +10,13 @@
     "import": "./esm/index.js",
     "require": "./cjs/index.js"
   },
+  "files": [
+    "esm",
+    "cjs",
+    "doc",
+    "LICENSE",
+    "README.md"
+  ],
   "repository": "https://github.com/hauptmedia/zeebe-exporter-types",
   "license": "Apache-2.0",
   "keywords": [
@@ -27,10 +34,12 @@
   ],
   "scripts": {
     "build": "run-s clean build:esm build:cjs build:doc build:copyfiles",
-    "build:copyfiles": "shx cp package.json dist",
+    "build:copyfiles": "shx cp LICENSE README.md package.json dist",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:doc": "typedoc src/ --exclude **/*.spec.ts --target es2018 --mode file --out dist/docs",
+    "prepublish": "run-s build",
+    "publish": "cd dist && npm publish --access public",
     "clean": "shx rm -rf dist/",
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "fix:lint": "eslint src --ext .ts --fix"
@@ -47,14 +56,5 @@
     "shx": "^0.3.4",
     "typedoc": "^0.19.0",
     "typescript": "^4.0.2"
-  },
-  "files": [
-    "build/main",
-    "build/module",
-    "!**/*.spec.*",
-    "!**/*.json",
-    "CHANGELOG.md",
-    "LICENSE",
-    "README.md"
-  ]
+  }
 }
