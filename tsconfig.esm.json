@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "target": "es2020",
+    "outDir": "dist/esm",
+    "module": "es2020"
+  },
+  "exclude": [
+    "node_modules/**"
+  ]
+}

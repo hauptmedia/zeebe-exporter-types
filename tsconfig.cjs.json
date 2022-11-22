@@ -1,9 +1,9 @@
 {
   "extends": "./tsconfig",
   "compilerOptions": {
-    "target": "esnext",
-    "outDir": "build/module",
-    "module": "esnext"
+    "target": "es2020",
+    "outDir": "dist/cjs",
+    "module": "commonjs"
   },
   "exclude": [
     "node_modules/**"
