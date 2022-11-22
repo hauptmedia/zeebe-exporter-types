@@ -16,12 +16,12 @@
  */
 
 import {RejectionType} from './RejectionType';
-import {RecordType} from './RecordType';
+import {ZeebeRecordType} from './ZeebeRecordType';
 
 import {ValueTypeEnum} from "./ValueTypeEnum";
 import {IntentType} from "./intent/IntentType";
 
-export type Record<ValueType> = {
+export type ZeebeRecord<ValueType> = {
     /*
      * The position of the record. Positions are locally unique to the partition, and
      * monotonically increasing. Records are then ordered on the partition by their positions, i.e.
@@ -62,7 +62,7 @@ export type Record<ValueType> = {
     /**
      * the type of the record (event, command or command rejection)
      */
-    recordType: RecordType;
+    recordType: ZeebeRecordType;
 
     /**
      * the type of rejection if recordType is COMMAND_REJECTION or else <code>null</code>.

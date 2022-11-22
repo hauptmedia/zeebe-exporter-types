@@ -35,7 +35,8 @@ import {ProcessMessageSubscriptionRecordValue} from "./value/ProcessMessageSubsc
 import {TimerRecordValue} from "./value/TimerRecordValue";
 import {VariableDocumentRecordValue} from "./value/VariableDocumentRecordValue";
 import {VariableRecordValue} from "./value/VariableRecordValue";
+import {MessageSubscriptionRecordValue} from "./value/MessageSubscriptionRecordValue";
 
 export type ValueType =
-    DecisionEvaluationRecordValue | DecisionRecordValue | DecisionRequirementsRecordValue | DeploymentDistributionRecordValue | DeploymentRecordValue | ErrorRecordValue | EscalationRecordValue | IncidentRecordValue | JobBatchRecordValue | JobRecordValue | MessageRecordValue | MessageStartEventSubscriptionRecordValue | ProcessEventRecordValue | ProcessInstanceCreationRecordValue | ProcessInstanceRecordValue | ProcessInstanceModificationRecordValue | ProcessInstanceResultRecordValue | Process | ProcessMessageSubscriptionRecordValue | TimerRecordValue | VariableDocumentRecordValue | VariableRecordValue;
+    DecisionEvaluationRecordValue | DecisionRecordValue | DecisionRequirementsRecordValue | DeploymentDistributionRecordValue | DeploymentRecordValue | ErrorRecordValue | EscalationRecordValue | IncidentRecordValue | JobBatchRecordValue | JobRecordValue | MessageRecordValue | MessageStartEventSubscriptionRecordValue | MessageSubscriptionRecordValue | ProcessEventRecordValue | ProcessInstanceCreationRecordValue | ProcessInstanceRecordValue | ProcessInstanceModificationRecordValue | ProcessInstanceResultRecordValue | Process | ProcessMessageSubscriptionRecordValue | TimerRecordValue | VariableDocumentRecordValue | VariableRecordValue;
 

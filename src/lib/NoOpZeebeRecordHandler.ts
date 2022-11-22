@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import {RecordHandlerInterface} from "../types/RecordHandlerInterface";
+import {ZeebeRecordHandlerInterface} from "../types/ZeebeRecordHandlerInterface";
 import {
   DecisionEvaluationRecordValue,
   DecisionRecordValue,
@@ -33,124 +33,124 @@ import {
   ProcessInstanceCreationRecordValue, ProcessInstanceModificationRecordValue,
   ProcessInstanceRecordValue, ProcessInstanceResultRecordValue,
   ProcessMessageSubscriptionRecordValue,
-  Record,
+  ZeebeRecord,
   TimerRecordValue, VariableDocumentRecordValue,
   VariableRecordValue
 } from "../types"
 
-export class NoOpRecordHandler implements RecordHandlerInterface {
+export class NoOpZeebeRecordHandler implements ZeebeRecordHandlerInterface {
   // @ts-ignore
-  decision(record: Record<DecisionRecordValue>): void {
+  decision(record: ZeebeRecord<DecisionRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  decisionEvaluation(record: Record<DecisionEvaluationRecordValue>): void {
+  decisionEvaluation(record: ZeebeRecord<DecisionEvaluationRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  decisionRequirements(record: Record<DecisionRequirementsRecordValue>): void {
+  decisionRequirements(record: ZeebeRecord<DecisionRequirementsRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  deployment(record: Record<DeploymentRecordValue>): void {
+  deployment(record: ZeebeRecord<DeploymentRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  deploymentDistribution(record: Record<DeploymentDistributionRecordValue>): void {
+  deploymentDistribution(record: ZeebeRecord<DeploymentDistributionRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  error(record: Record<ErrorRecordValue>): void {
+  error(record: ZeebeRecord<ErrorRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  escalation(record: Record<EscalationRecordValue>): void {
+  escalation(record: ZeebeRecord<EscalationRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  incident(record: Record<IncidentRecordValue>): void {
+  incident(record: ZeebeRecord<IncidentRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  job(record: Record<JobRecordValue>): void {
+  job(record: ZeebeRecord<JobRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  jobBatch(record: Record<JobBatchRecordValue>): void {
+  jobBatch(record: ZeebeRecord<JobBatchRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  message(record: Record<MessageRecordValue>): void {
+  message(record: ZeebeRecord<MessageRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  messageStartEventSubscription(record: Record<MessageStartEventSubscriptionRecordValue>): void {
+  messageStartEventSubscription(record: ZeebeRecord<MessageStartEventSubscriptionRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  messageSubscription(record: Record<MessageSubscriptionRecordValue>): void {
+  messageSubscription(record: ZeebeRecord<MessageSubscriptionRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  process(record: Record<Process>): void {
+  process(record: ZeebeRecord<Process>): void {
     return;
   }
 
   // @ts-ignore
-  processEvent(record: Record<ProcessEventRecordValue>): void {
+  processEvent(record: ZeebeRecord<ProcessEventRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  processInstance(record: Record<ProcessInstanceRecordValue>): void {
+  processInstance(record: ZeebeRecord<ProcessInstanceRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  processInstanceCreation(record: Record<ProcessInstanceCreationRecordValue>): void {
+  processInstanceCreation(record: ZeebeRecord<ProcessInstanceCreationRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  processInstanceModification(record: Record<ProcessInstanceModificationRecordValue>): void {
+  processInstanceModification(record: ZeebeRecord<ProcessInstanceModificationRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  processInstanceResult(record: Record<ProcessInstanceResultRecordValue>): void {
+  processInstanceResult(record: ZeebeRecord<ProcessInstanceResultRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  processMessageSubscription(record: Record<ProcessMessageSubscriptionRecordValue>): void {
+  processMessageSubscription(record: ZeebeRecord<ProcessMessageSubscriptionRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  timer(record: Record<TimerRecordValue>): void {
+  timer(record: ZeebeRecord<TimerRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  variable(record: Record<VariableRecordValue>): void {
+  variable(record: ZeebeRecord<VariableRecordValue>): void {
     return;
   }
 
   // @ts-ignore
-  variableDocument(record: Record<VariableDocumentRecordValue>): void {
+  variableDocument(record: ZeebeRecord<VariableDocumentRecordValue>): void {
     return;
   }
 }

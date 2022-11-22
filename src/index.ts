@@ -1,5 +1,4 @@
 /*
- * Copyright © 2017-2022 camunda services GmbH (info@camunda.com)
  * Copyright © 2022 Hauptmedia GmbH (info@haupt.media)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,8 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export enum RecordType {
-  EVENT = 'EVENT',
-  COMMAND = 'COMMAND',
-  COMMAND_REJECTION = 'COMMAND_REJECTION',
-}
+export * from './types'
+export * from './lib/createZeebeRecordHandlerMap'
+export * from './lib/NoOpZeebeRecordHandler'
