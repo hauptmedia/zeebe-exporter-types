@@ -64,7 +64,7 @@ const run = async () => {
 run().catch(console.error);
 ```
 
-## Structure of the Zeebe export data
+## Structure of Zeebe export data
 
 Please follow the links for the detailed documentation of the data structure.
 
