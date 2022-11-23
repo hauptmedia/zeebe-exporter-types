@@ -1,10 +1,14 @@
-# zeebe-exporter-types
+Zeebe Export JSON Typescript Types
+==================================
+![Compatible with: Camunda Platform 8](https://img.shields.io/badge/Compatible%20with-Camunda%20Platform%208-0072Ce)
 
 Typescript type definitions for JSON encoded export data used by the Zeebe Workflow Automation Engine.
 
-## Example
+## Kafka example
 
-This example shows how to leverage this library to process JSON encoded Zeebe event data coming from kafka.
+This example shows how to leverage this library to process JSON encoded Zeebe event data coming from Kafka.
+
+Use the [zeebe-kafka-exporter](https://github.com/camunda-community-hub/zeebe-kafka-exporter) for Zeebe to export event data to Kafka.
 
 You can find the example project in [examples/kafka](https://github.com/hauptmedia/zeebe-exporter-types/tree/main/examples/kafka).
 
