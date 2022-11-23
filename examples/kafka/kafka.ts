@@ -1,14 +1,3 @@
-# zeebe-exporter-types
-
-Typescript type definitions for JSON encoded export data used by the Zeebe Workflow Automation Engine.
-
-## Example
-
-This example shows how to leverage this library to process JSON encoded Zeebe event data coming from kafka.
-
-You can find the example project in [examples/kafka](https://github.com/hauptmedia/zeebe-exporter-types/tree/main/examples/kafka).
-
-```typescript
 import {
     dispatchZeebeRecordToHandler,
     NoOpZeebeRecordHandler,
@@ -51,4 +40,3 @@ const run = async () => {
 }
 
 run().catch(console.error);
-```
