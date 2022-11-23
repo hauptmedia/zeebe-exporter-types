@@ -64,10 +64,104 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#zeebe-exporter-types" id="zeebe-exporter-types" style="color: inherit; text-decoration: none;">
-					<h1>zeebe-exporter-types</h1>
+				<a href="#zeebe-json-export-typescript-types" id="zeebe-json-export-typescript-types" style="color: inherit; text-decoration: none;">
+					<h1>Zeebe JSON Export Typescript Types</h1>
 				</a>
+				<p><img src="https://img.shields.io/badge/Compatible%20with-Camunda%20Platform%208-0072Ce" alt="Compatible with: Camunda Platform 8"></p>
 				<p>Typescript type definitions for JSON encoded export data used by the Zeebe Workflow Automation Engine.</p>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<pre><code class="language-shell">npm i --save @hauptmedia/zeebe-exporter-types
+</code></pre>
+				<a href="#kafka-example" id="kafka-example" style="color: inherit; text-decoration: none;">
+					<h2>Kafka example</h2>
+				</a>
+				<p>This example shows how to leverage this library to process JSON encoded Zeebe event data coming from Kafka.</p>
+				<p>Use the <a href="https://github.com/camunda-community-hub/zeebe-kafka-exporter">zeebe-kafka-exporter</a> for Zeebe to export event data to Kafka.</p>
+				<p>You can find the example project in <a href="https://github.com/hauptmedia/zeebe-exporter-types/tree/main/examples/kafka">examples/kafka</a>.</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {
+    dispatchZeebeRecordToHandler,
+    NoOpZeebeRecordHandler,
+    ProcessInstanceRecordValue,
+    ValueType,
+    ZeebeRecord,
+    ZeebeRecordHandlerInterface
+} <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@hauptmedia/zeebe-exporter-types&quot;</span>;
+<span class="hljs-keyword">import</span> {Kafka} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;kafkajs&#x27;</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyRecordHandler</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">NoOpZeebeRecordHandler</span> <span class="hljs-title">implements</span> <span class="hljs-title">ZeebeRecordHandlerInterface</span> </span>{
+    
+    <span class="hljs-comment">// Override the methods for the records you want to process or implement ZeebeRecordHandlerInterface</span>
+    <span class="hljs-function"><span class="hljs-title">processInstance</span>(<span class="hljs-params">record: ZeebeRecord&lt;ProcessInstanceRecordValue&gt;</span>)</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${record.intent}</span> <span class="hljs-subst">${record.value.bpmnElementType}</span> <span class="hljs-subst">${record.value.elementId}</span>`</span>);
+    }
+}
+
+<span class="hljs-keyword">const</span> kafka = <span class="hljs-keyword">new</span> Kafka({
+        <span class="hljs-attr">clientId</span>: <span class="hljs-string">&#x27;exampleClientId&#x27;</span>,
+        <span class="hljs-attr">brokers</span>: [<span class="hljs-string">&#x27;localhost:9093&#x27;</span>]
+    }),
+    zbRecordHandler = <span class="hljs-keyword">new</span> MyRecordHandler(),
+    consumer = kafka.consumer({<span class="hljs-attr">groupId</span>: <span class="hljs-string">&#x27;exampleGroupId&#x27;</span>});
+
+<span class="hljs-keyword">const</span> run = <span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-keyword">await</span> consumer.connect()
+    <span class="hljs-keyword">await</span> consumer.subscribe({<span class="hljs-attr">topic</span>: <span class="hljs-string">&quot;zeebe&quot;</span>})
+
+    <span class="hljs-keyword">await</span> consumer.run({
+        <span class="hljs-attr">eachMessage</span>: <span class="hljs-keyword">async</span> ({topic, partition, message, heartbeat, pause}) =&gt; {
+            <span class="hljs-keyword">if</span> (!message.value)
+                <span class="hljs-keyword">return</span>;
+
+            dispatchZeebeRecordToHandler(
+                <span class="hljs-built_in">JSON</span>.parse(message.value.toString()) <span class="hljs-keyword">as</span> ZeebeRecord&lt;ValueType&gt;,
+                zbRecordHandler
+            );
+        },
+    })
+}
+
+run().catch(<span class="hljs-built_in">console</span>.error);
+</code></pre>
+				<a href="#structure-of-zeebe-export-data" id="structure-of-zeebe-export-data" style="color: inherit; text-decoration: none;">
+					<h2>Structure of Zeebe export data</h2>
+				</a>
+				<p>Please follow the links for the detailed documentation of the data structure.</p>
+				<a href="#base-record" id="base-record" style="color: inherit; text-decoration: none;">
+					<h3>Base Record</h3>
+				</a>
+				<ul>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/globals.html#zeeberecord">ZeebeRecord</a></li>
+				</ul>
+				<a href="#value-types" id="value-types" style="color: inherit; text-decoration: none;">
+					<h3>Value Types</h3>
+				</a>
+				<ul>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/decisionevaluationrecordvalue.html">DecisionEvaluationRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/decisionrecordvalue.html">DecisionRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/decisionrequirementsrecordvalue.html">DecisionRequirementsRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/deploymentdistributionrecordvalue.html">DeploymentDistributionRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/deploymentrecordvalue.html">DeploymentRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/errorrecordvalue.html">ErrorRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/escalationrecordvalue.html">EscalationRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/incidentrecordvalue.html">IncidentRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/jobbatchrecordvalue.html">JobBatchRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/jobrecordvalue.html">JobRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/messagerecordvalue.html">MessageRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/messagestarteventsubscriptionrecordvalue.html">MessageStartEventSubscriptionRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/messagesubscriptionrecordvalue.html">MessageSubscriptionRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/processeventrecordvalue.html">ProcessEventRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/processinstancecreationrecordvalue.html">ProcessInstanceCreationRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/processinstancerecordvalue.html">ProcessInstanceRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/processinstancemodificationrecordvalue.html">ProcessInstanceModificationRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/processinstanceresultrecordvalue.html">ProcessInstanceResultRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/process.html">Process</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/processmessagesubscriptionrecordvalue.html">ProcessMessageSubscriptionRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/timerrecordvalue.html">TimerRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/variabledocumentrecordvalue.html">VariableDocumentRecordValue</a></li>
+					<li><a href="https://hauptmedia.github.io/zeebe-exporter-types/interfaces/variablerecordvalue.html">VariableRecordValue</a></li>
+				</ul>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
