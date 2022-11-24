@@ -66,7 +66,7 @@ export interface ProcessInstanceRecordValue extends ProcessInstanceRelated {
   parentElementInstanceKey: number;
 
   /**
-   * @return the BPMN event type of the current process element.
+   * the BPMN event type of the current process element.
    */
   bpmnEventType: BpmnEventType;
 }

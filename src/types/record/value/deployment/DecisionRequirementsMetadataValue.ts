@@ -47,7 +47,7 @@ export interface DecisionRequirementsMetadataValue {
   resourceName: string;
 
   /**
-   * @return the checksum of the DMN resource (MD5)
+   * the checksum of the DMN resource (MD5)
    */
   checksum: string;
 
