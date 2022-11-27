@@ -36,6 +36,7 @@ import {ProcessMessageSubscriptionIntent} from "./ProcessMessageSubscriptionInte
 import {TimerIntent} from "./TimerIntent";
 import {VariableDocumentIntent} from "./VariableDocumentIntent";
 import {VariableIntent} from "./VariableIntent";
+import {MessageSubscriptionIntent} from "./MessageSubscriptionIntent";
 
 export type IntentType = DecisionEvaluationIntent
     | DecisionIntent
@@ -48,6 +49,7 @@ export type IntentType = DecisionEvaluationIntent
     | JobBatchIntent
     | JobIntent
     | MessageIntent
+    | MessageSubscriptionIntent
     | MessageStartEventSubscriptionIntent
     | ProcessEventIntent
     | ProcessInstanceCreationIntent
