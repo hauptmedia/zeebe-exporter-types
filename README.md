@@ -2,9 +2,9 @@ Zeebe JSON Export Typescript Types
 ==================================
 ![Compatible with: Camunda Platform 8](https://img.shields.io/badge/Compatible%20with-Camunda%20Platform%208-0072Ce)
 
-Typescript type definitions for JSON encoded export data used by the Zeebe Workflow Automation Engine.
+Typescript type & JSON Schema definitions for JSON encoded export data used by the Zeebe Workflow Automation Engine.
 
-You can find the JSON schema definitions of the Zeebe Events [here](https://github.com/hauptmedia/zeebe-exporter-types/tree/main/jsonschema).
+You can find the JSON Schema definitions of the Zeebe Events [here](https://github.com/hauptmedia/zeebe-exporter-types/tree/main/jsonschema).
 
 ## Installation
 
