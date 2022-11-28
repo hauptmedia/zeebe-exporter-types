@@ -38,7 +38,7 @@
   ],
   "scripts": {
     "build": "run-s clean build:esm build:cjs build:doc build:copyfiles",
-    "build:copyfiles": "shx cp package.cjs.json dist/cjs/package.json && shx cp package.esm.json dist/esm/package.json",
+    "build:copyfiles": "shx cp package.cjs.json dist/cjs/package.json && shx cp package.esm.json dist/esm/package.json && shx cp -r jsonschema/ dist/",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:doc": "typedoc src/ --exclude **/*.spec.ts --target es2018 --mode file --out dist/docs",
