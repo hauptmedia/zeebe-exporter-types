@@ -4,7 +4,7 @@ Zeebe JSON Export Typescript Types
 
 Typescript type definitions for JSON encoded export data used by the Zeebe Workflow Automation Engine.
 
-You can find the JSON schema definitions of the Zeebe Events [here](https://github.com/hauptmedia/zeebe-exporter-types/tree/main/jsonschema/io.zeebe.event).
+You can find the JSON schema definitions of the Zeebe Events [here](https://github.com/hauptmedia/zeebe-exporter-types/tree/main/jsonschema).
 
 ## Installation
 
