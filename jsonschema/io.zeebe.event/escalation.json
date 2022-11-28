@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "catchElementId": {
+            "description": "the id of the escalation catch event",
+            "type": "string"
+        },
+        "escalationCode": {
+            "description": "the code of the escalation",
+            "type": "string"
+        },
+        "processInstanceKey": {
+            "description": "the key of the process instance",
+            "type": "number"
+        },
+        "throwElementId": {
+            "description": "the id of the escalation throw event",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
+

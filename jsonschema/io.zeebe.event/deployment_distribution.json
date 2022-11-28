@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "partitionId": {
+            "description": "the partition where the deployment should be distributed",
+            "type": "number"
+        }
+    },
+    "type": "object"
+}
+

@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "bpmnProcessId": {
+            "description": "the BPMN process id this process instance belongs to.",
+            "type": "string"
+        },
+        "name": {
+            "description": "the name of the variable.",
+            "type": "string"
+        },
+        "processDefinitionKey": {
+            "description": "the key of the process the variable belongs to",
+            "type": "number"
+        },
+        "processInstanceKey": {
+            "description": "the key of the corresponding process instance",
+            "type": "number"
+        },
+        "scopeKey": {
+            "description": "the key of the scope the variable belongs to.",
+            "type": "number"
+        },
+        "value": {
+            "description": "the value of the variable as JSON string.",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
+
