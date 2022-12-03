@@ -97,8 +97,8 @@
           "type": "number"
         },
         "variables": {
-          "$ref": "#/definitions/Record<string,any>",
-          "description": "the variables of this record. Can be empty."
+          "description": "the variables of this record. Can be empty.",
+          "type": "object"
         },
         "processInstanceKey": {
           "description": "the key of the corresponding process instance",
@@ -107,9 +107,6 @@
       }
     },
     "Record<string,string>": {
-      "type": "object"
-    },
-    "Record<string,any>": {
       "type": "object"
     }
   },

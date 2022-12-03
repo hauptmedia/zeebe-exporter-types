@@ -22,12 +22,7 @@
       "type": "number"
     },
     "variables": {
-      "$ref": "#/definitions/Record<string,any>",
-      "description": "the variables of this record. Can be empty."
-    }
-  },
-  "definitions": {
-    "Record<string,any>": {
+      "description": "the variables of this record. Can be empty.",
       "type": "object"
     }
   },

@@ -17,6 +17,7 @@
 export interface RecordValueWithVariables {
   /**
    * the variables of this record. Can be empty.
+   * @TJS-type object
    */
   variables: Record<string, any>;
 }

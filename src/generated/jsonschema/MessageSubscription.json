@@ -26,17 +26,12 @@
       "type": "boolean"
     },
     "variables": {
-      "$ref": "#/definitions/Record<string,any>",
-      "description": "the variables of this record. Can be empty."
+      "description": "the variables of this record. Can be empty.",
+      "type": "object"
     },
     "processInstanceKey": {
       "description": "the key of the corresponding process instance",
       "type": "number"
-    }
-  },
-  "definitions": {
-    "Record<string,any>": {
-      "type": "object"
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#"

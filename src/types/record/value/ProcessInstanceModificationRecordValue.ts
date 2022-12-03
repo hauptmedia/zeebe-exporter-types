@@ -67,7 +67,10 @@ export interface ProcessInstanceModificationActivateInstructionValue {
 }
 
 export interface ProcessInstanceModificationVariableInstructionValue {
-  /** The variables of this instruction. Can be empty. */
+  /**
+   * The variables of this instruction. Can be empty.
+   * @TJS-type object
+   */
   variables: Record<string, any>;
 
   /**
