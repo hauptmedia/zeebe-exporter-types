@@ -24,7 +24,8 @@ const program = TJS.getProgramFromFiles(
 const generator = TJS.buildGenerator(program, settings);
 
 const whitelist = [
-    "ZeebeRecord"
+    "ZeebeRecord",
+    "Process"
 ];
 
 const blacklist = [

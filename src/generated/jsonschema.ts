@@ -1,6 +1,7 @@
 import * as DecisionEvaluation from './jsonschema/DecisionEvaluation.json'
 import * as Decision from './jsonschema/Decision.json'
 import * as DecisionRequirements from './jsonschema/DecisionRequirements.json'
+import * as Process from './jsonschema/Process.json'
 import * as DeploymentDistribution from './jsonschema/DeploymentDistribution.json'
 import * as Deployment from './jsonschema/Deployment.json'
 import * as Error from './jsonschema/Error.json'
@@ -25,6 +26,7 @@ export const JsonSchemaRegistry = {
   'DecisionEvaluation': DecisionEvaluation,
   'Decision': Decision,
   'DecisionRequirements': DecisionRequirements,
+  'Process': Process,
   'DeploymentDistribution': DeploymentDistribution,
   'Deployment': Deployment,
   'Error': Error,
