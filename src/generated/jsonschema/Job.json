@@ -6,8 +6,8 @@
       "type": "string"
     },
     "customHeaders": {
-      "$ref": "#/definitions/Record<string,string>",
-      "description": "user-defined headers associated with this job"
+      "description": "user-defined headers associated with this job",
+      "type": "object"
     },
     "worker": {
       "description": "the assigned worker to complete the job",
@@ -64,11 +64,6 @@
     "processInstanceKey": {
       "description": "the key of the corresponding process instance",
       "type": "number"
-    }
-  },
-  "definitions": {
-    "Record<string,string>": {
-      "type": "object"
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#"

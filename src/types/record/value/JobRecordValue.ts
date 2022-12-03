@@ -30,6 +30,7 @@ export interface JobRecordValue
 
   /**
    * user-defined headers associated with this job
+   * @TJS-type object
    */
   customHeaders: Record<string, string>;
 
