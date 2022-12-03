@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "scopeKey": {
+      "description": "the key identifying the event's scope",
+      "type": "number"
+    },
+    "targetElementId": {
+      "description": "The ID of the element which should react to the event",
+      "type": "string"
+    },
+    "processDefinitionKey": {
+      "description": "the key of the deployed process this instance belongs to.",
+      "type": "number"
+    },
+    "variables": {
+      "$ref": "#/definitions/Record<string,any>",
+      "description": "the variables of this record. Can be empty."
+    },
+    "processInstanceKey": {
+      "description": "the key of the corresponding process instance",
+      "type": "number"
+    }
+  },
+  "definitions": {
+    "Record<string,any>": {
+      "type": "object"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "decisionId": {
+      "description": "the ID of the decision in the DMN",
+      "type": "string"
+    },
+    "decisionName": {
+      "description": "the name of the decision in the DMN",
+      "type": "string"
+    },
+    "version": {
+      "description": "the version of the deployed decision",
+      "type": "number"
+    },
+    "decisionKey": {
+      "description": "the key of the deployed decision",
+      "type": "number"
+    },
+    "decisionRequirementsId": {
+      "description": "the ID of the DRG in the DMN this decision belongs to",
+      "type": "string"
+    },
+    "decisionRequirementsKey": {
+      "description": "the key of the deployed DRG this decision belongs to",
+      "type": "number"
+    },
+    "duplicate": {
+      "description": "{@code true} if the decision is a duplicate (and has been deployed previously),\n    otherwise {@code false}",
+      "type": "boolean"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

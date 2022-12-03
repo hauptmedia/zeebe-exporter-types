@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "processDefinitionKey": {
+      "description": "the key of the process in which this timer was created",
+      "type": "number"
+    },
+    "elementInstanceKey": {
+      "description": "the key of the related element instance.",
+      "type": "number"
+    },
+    "dueDate": {
+      "description": "the due date of the timer as Unix timestamp in millis.",
+      "type": "number"
+    },
+    "targetElementId": {
+      "description": "The handlerFlowNodeID property represent the ID, from the BPMN XML of the process, of the flow\nnode which will handle the timer trigger's event. In normal flow, this is usually the same as\nthe related activity's ID, but when the timer was created due to a boundary event, it will be\nthat event's ID.",
+      "type": "string"
+    },
+    "repetitions": {
+      "description": "the number of times this timer should trigger",
+      "type": "number"
+    },
+    "processInstanceKey": {
+      "description": "the key of the corresponding process instance",
+      "type": "number"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

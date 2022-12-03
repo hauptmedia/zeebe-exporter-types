@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "the name of the message",
+      "type": "string"
+    },
+    "correlationKey": {
+      "description": "the correlation key of the message",
+      "type": "string"
+    },
+    "messageId": {
+      "description": "The ID of a message is an optional field which is used to make messages unique and prevent\npublishing the same message twice during its lifetime.",
+      "type": "string"
+    },
+    "timeToLive": {
+      "description": "the time to live of the message",
+      "type": "number"
+    },
+    "deadline": {
+      "description": "the unix timestamp in milliseconds until when the message can be correlated. If the\n    deadline is exceeded then the message expires and will be removed. If this property is not\n    set, it returns -1 instead.",
+      "type": "number"
+    },
+    "variables": {
+      "$ref": "#/definitions/Record<string,any>",
+      "description": "the variables of this record. Can be empty."
+    }
+  },
+  "definitions": {
+    "Record<string,any>": {
+      "type": "object"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

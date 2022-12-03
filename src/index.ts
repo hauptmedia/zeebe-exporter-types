@@ -14,5 +14,6 @@
  * limitations under the License.
  */
 export * from './types'
+export * from './generated/jsonschema'
 export * from './lib/dispatchZeebeRecordToHandler'
 export * from './lib/NoOpZeebeRecordHandler'
