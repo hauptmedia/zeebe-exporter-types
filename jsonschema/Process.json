@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "resource": {
+      "description": "returns the corresponding binary resource",
+      "type": "string"
+    },
+    "bpmnProcessId": {
+      "description": "the bpmn process ID of this process",
+      "type": "string"
+    },
+    "version": {
+      "description": "the version of this process",
+      "type": "number"
+    },
+    "processDefinitionKey": {
+      "description": "the key of this process",
+      "type": "number"
+    },
+    "checksum": {
+      "description": "the checksum of the process (MD5)",
+      "type": "string"
+    },
+    "duplicate": {
+      "description": "true if the process is a duplicate (and has been deployed previously), false otherwise",
+      "type": "boolean"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
