@@ -1,6 +1,6 @@
 {
   "name": "@hauptmedia/zeebe-exporter-types",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Typescript type definitions for JSON encoded export data used by the Zeebe Workflow Automation Engine.",
   "author": {
     "name": "Julian Haupt",
