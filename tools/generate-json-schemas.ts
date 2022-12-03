@@ -38,19 +38,22 @@ const symbols = generator.getUserSymbols().filter(name =>
 // Write JSON Schema Files
 symbols.forEach(symbol => {
     let schema = generator.getSchemaForSymbol(symbol);
-    writeFileSync(`src/generated/jsonschema/${symbol}.json`, JSON.stringify(schema, null, 2));
+    let schemaFileName = symbol.replace("RecordValue", "");
+    writeFileSync(`src/generated/jsonschema/${schemaFileName}.json`, JSON.stringify(schema, null, 2));
 });
 
 
 let exportFile = "";
 
 symbols.forEach(symbol => {
-    exportFile += `import * as ${symbol} from './jsonschema/${symbol}.json'\n`;
+    let schemaFileName = symbol.replace("RecordValue", "");
+    exportFile += `import * as ${schemaFileName} from './jsonschema/${schemaFileName}.json'\n`;
 });
 
 exportFile += "export const JsonSchemaRegistry = {\n";
 symbols.forEach(symbol => {
-    exportFile += "  '" + symbol + "': " + symbol + ",\n";
+    let schemaFileName = symbol.replace("RecordValue", "");
+    exportFile += "  '" + schemaFileName + "': " + schemaFileName + ",\n";
 });
 exportFile += "}\n";
 
