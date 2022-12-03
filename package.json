@@ -38,14 +38,14 @@
   ],
   "scripts": {
     "build": "run-s clean build:jsonschema build:esm build:cjs build:doc build:copyfiles",
-    "build:copyfiles": "shx cp package.cjs.json dist/cjs/package.json && shx cp package.esm.json dist/esm/package.json && shx cp -r src/generated/jsonschema/ dist/",
+    "build:copyfiles": "shx cp package.cjs.json dist/cjs/package.json && shx cp package.esm.json dist/esm/package.json",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:doc": "typedoc src/ --exclude **/*.spec.ts --target es2018 --mode file --out dist/docs",
     "build:jsonschema": "ts-node tools/generate-json-schemas.ts",
-    "publish:docs": "gh-pages -d dist/docs",
+    "publish:gh-pages": "run-s build && shx mkdir gh-pages && shx cp -r dist/docs/* gh-pages/ && shx cp -r src/generated/jsonschema gh-pages/ && gh-pages -d gh-pages",
     "publish:npm": "run-s build && npm publish --access public",
-    "clean": "shx rm -rf dist/",
+    "clean": "shx rm -rf dist/ gh-pages/",
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "fix:lint": "eslint src --ext .ts --fix"
   },
