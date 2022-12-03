@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "bpmnProcessId": {
+      "description": "the BPMN process id to create a process from",
+      "type": "string"
+    },
+    "version": {
+      "description": "the version of the BPMN process to create a process from",
+      "type": "number"
+    },
+    "processDefinitionKey": {
+      "description": "the unique key of the BPMN process definition to create a process from",
+      "type": "number"
+    },
+    "startInstructions": {
+      "description": "Returns a list of start instructions (if available), or an empty list.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ProcessInstanceCreationStartInstructionValue"
+      }
+    },
+    "variables": {
+      "description": "the variables of this record. Can be empty.",
+      "type": "object"
+    },
+    "processInstanceKey": {
+      "description": "the key of the corresponding process instance",
+      "type": "number"
+    }
+  },
+  "definitions": {
+    "ProcessInstanceCreationStartInstructionValue": {
+      "type": "object",
+      "properties": {
+        "elementId": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

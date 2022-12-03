@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "processDefinitionKey": {
+      "description": "the process key tied to the subscription",
+      "type": "number"
+    },
+    "bpmnProcessId": {
+      "description": "the BPMN process id tied to the subscription",
+      "type": "string"
+    },
+    "startEventId": {
+      "description": "the id of the start event tied to the subscription",
+      "type": "string"
+    },
+    "messageName": {
+      "description": "the name of the message",
+      "type": "string"
+    },
+    "processInstanceKey": {
+      "description": "the key of the process instance that was created by this message. It is only set when a\n    message is correlated to this subscription. Otherwise, it returns -1.",
+      "type": "number"
+    },
+    "correlationKey": {
+      "description": "the correlation key of the message. It is only set when a message is correlated to this\n    subscription. Otherwise, it returns an empty string.",
+      "type": "string"
+    },
+    "messageKey": {
+      "description": "the key of the message. It is only set when a message is correlated to this\n    subscription. Otherwise, it returns -1.",
+      "type": "number"
+    },
+    "variables": {
+      "description": "the variables of this record. Can be empty.",
+      "type": "object"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

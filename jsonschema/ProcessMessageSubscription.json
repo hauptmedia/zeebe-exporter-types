@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "elementInstanceKey": {
+      "description": "the element instance key",
+      "type": "number"
+    },
+    "bpmnProcessId": {
+      "description": "the BPMN process id",
+      "type": "string"
+    },
+    "messageKey": {
+      "description": "the key of the correlated message",
+      "type": "number"
+    },
+    "messageName": {
+      "description": "the message name",
+      "type": "string"
+    },
+    "correlationKey": {
+      "description": "the correlation key",
+      "type": "string"
+    },
+    "elementId": {
+      "description": "the id of the element tied to the subscription.",
+      "type": "string"
+    },
+    "interrupting": {
+      "description": "{@code true} if the event tied to the subscription is interrupting. Otherwise, it\n    returns {@code false} if the event is non-interrupting.",
+      "type": "boolean"
+    },
+    "variables": {
+      "description": "the variables of this record. Can be empty.",
+      "type": "object"
+    },
+    "processInstanceKey": {
+      "description": "the key of the corresponding process instance",
+      "type": "number"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

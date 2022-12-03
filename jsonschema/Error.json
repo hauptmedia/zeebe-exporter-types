@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "exceptionMessage": {
+      "description": "the exception message, which causes this error record.",
+      "type": "string"
+    },
+    "stacktrace": {
+      "description": "the stacktrace, which belongs to the exception",
+      "type": "string"
+    },
+    "errorEventPosition": {
+      "description": "the position of the event, which causes this error",
+      "type": "number"
+    },
+    "processInstanceKey": {
+      "description": "the process instance key, which is related to the failed event. If the event is not\n    process instance related, then this will return -1",
+      "type": "number"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

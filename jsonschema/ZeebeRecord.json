@@ -1,0 +1,164 @@
+{
+  "type": "object",
+  "properties": {
+    "position": {
+      "type": "number"
+    },
+    "sourceRecordPosition": {
+      "type": "number"
+    },
+    "key": {
+      "description": "The key of the record.\n\n<p>Multiple records can have the same key if they belongs to the same logical entity. Keys are\nunique for the combination of partition and record type.",
+      "type": "number"
+    },
+    "timestamp": {
+      "description": "the unix timestamp at which the record was published on the partition.",
+      "type": "number"
+    },
+    "intent": {
+      "$ref": "#/definitions/IntentType",
+      "description": "the intent of the record"
+    },
+    "partitionId": {
+      "description": "the partition ID on which the record was published",
+      "type": "number"
+    },
+    "recordType": {
+      "$ref": "#/definitions/ZeebeRecordType",
+      "description": "the type of the record (event, command or command rejection)"
+    },
+    "rejectionType": {
+      "$ref": "#/definitions/RejectionType",
+      "description": "the type of rejection if recordType is COMMAND_REJECTION or else <code>null</code>."
+    },
+    "rejectionReason": {
+      "description": "the reason why a command was rejected if recordTypereturns is COMMAND_REJECTION or else <code>null</code>.",
+      "type": "string"
+    },
+    "brokerVersion": {
+      "description": "the version of the broker that wrote this record",
+      "type": "string"
+    },
+    "valueType": {
+      "$ref": "#/definitions/ValueTypeEnum",
+      "description": "the type of the record (e.g. job, process, process instance, etc.)"
+    },
+    "value": {
+      "description": "The record value is essentially the record specific data, e.g. for a process instance\ncreation event, it would contain information relevant to the process instance being created.",
+      "type": "ValueType"
+    }
+  },
+  "definitions": {
+    "IntentType": {
+      "enum": [
+        "ACTIVATE",
+        "ACTIVATED",
+        "ACTIVATE_ELEMENT",
+        "CANCEL",
+        "CANCELED",
+        "COMPLETE",
+        "COMPLETED",
+        "COMPLETE_ELEMENT",
+        "CORRELATE",
+        "CORRELATED",
+        "CORRELATING",
+        "CREATE",
+        "CREATED",
+        "CREATE_WITH_AWAITING_RESULT",
+        "CREATING",
+        "DELETE",
+        "DELETED",
+        "DELETING",
+        "DISTRIBUTE",
+        "DISTRIBUTED",
+        "DISTRIBUTING",
+        "ELEMENT_ACTIVATED",
+        "ELEMENT_ACTIVATING",
+        "ELEMENT_COMPLETED",
+        "ELEMENT_COMPLETING",
+        "ELEMENT_TERMINATED",
+        "ELEMENT_TERMINATING",
+        "ERROR_THROWN",
+        "ESCALATED",
+        "EVALUATED",
+        "EXPIRE",
+        "EXPIRED",
+        "FAIL",
+        "FAILED",
+        "FULLY_DISTRIBUTED",
+        "MODIFIED",
+        "MODIFY",
+        "NOT_ESCALATED",
+        "PUBLISH",
+        "PUBLISHED",
+        "RECURRED_AFTER_BACKOFF",
+        "RECUR_AFTER_BACKOFF",
+        "REJECT",
+        "REJECTED",
+        "RESOLVE",
+        "RESOLVED",
+        "RETRIES_UPDATED",
+        "SEQUENCE_FLOW_TAKEN",
+        "TERMINATE_ELEMENT",
+        "THROW_ERROR",
+        "TIMED_OUT",
+        "TIME_OUT",
+        "TRIGGER",
+        "TRIGGERED",
+        "TRIGGERING",
+        "UPDATE",
+        "UPDATED",
+        "UPDATE_RETRIES"
+      ],
+      "type": "string"
+    },
+    "ZeebeRecordType": {
+      "enum": [
+        "COMMAND",
+        "COMMAND_REJECTION",
+        "EVENT"
+      ],
+      "type": "string"
+    },
+    "RejectionType": {
+      "enum": [
+        "ALREADY_EXISTS",
+        "EXCEEDED_BATCH_RECORD_SIZE",
+        "INVALID_ARGUMENT",
+        "INVALID_STATE",
+        "NOT_FOUND",
+        "PROCESSING_ERROR"
+      ],
+      "type": "string"
+    },
+    "ValueTypeEnum": {
+      "enum": [
+        "DECISION",
+        "DECISION_EVALUATION",
+        "DECISION_REQUIREMENTS",
+        "DEPLOYMENT",
+        "DEPLOYMENT_DISTRIBUTION",
+        "ERROR",
+        "ESCALATION",
+        "INCIDENT",
+        "JOB",
+        "JOB_BATCH",
+        "MESSAGE",
+        "MESSAGE_START_EVENT_SUBSCRIPTION",
+        "MESSAGE_SUBSCRIPTION",
+        "PROCESS",
+        "PROCESS_EVENT",
+        "PROCESS_INSTANCE",
+        "PROCESS_INSTANCE_CREATION",
+        "PROCESS_INSTANCE_MODIFICATION",
+        "PROCESS_INSTANCE_RESULT",
+        "PROCESS_MESSAGE_SUBSCRIPTION",
+        "TIMER",
+        "VARIABLE",
+        "VARIABLE_DOCUMENT"
+      ],
+      "type": "string"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

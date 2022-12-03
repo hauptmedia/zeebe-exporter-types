@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "resource": {
+      "description": "the binary DMN resource",
+      "type": "string"
+    },
+    "decisionRequirementsId": {
+      "description": "the ID of the DRG in the DMN",
+      "type": "string"
+    },
+    "decisionRequirementsName": {
+      "description": "the name of the DRG in the DMN",
+      "type": "string"
+    },
+    "decisionRequirementsVersion": {
+      "description": "the version of the deployed DRG",
+      "type": "number"
+    },
+    "decisionRequirementsKey": {
+      "description": "the key of the deployed DRG",
+      "type": "number"
+    },
+    "namespace": {
+      "description": "the namespace of the DRG in the DMN",
+      "type": "string"
+    },
+    "resourceName": {
+      "description": "the name of the resource through which this DRG was deployed",
+      "type": "string"
+    },
+    "checksum": {
+      "description": "the checksum of the DMN resource (MD5)",
+      "type": "string"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

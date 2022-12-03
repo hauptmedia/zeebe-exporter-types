@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "properties": {
+    "errorType": {
+      "$ref": "#/definitions/ErrorType",
+      "description": "the type of error this incident is caused by. Can be <code>UNKNOWN</code> if the\n    incident record is part of a {@link IncidentIntent#RESOLVE} command."
+    },
+    "errorMessage": {
+      "description": "the description of the error this incident is caused by. Can be empty if the incident\n    record is part of a {@link IncidentIntent#RESOLVE} command.",
+      "type": "string"
+    },
+    "bpmnProcessId": {
+      "description": "the BPMN process id this incident belongs to. Can be empty if the incident record is\n    part of a {@link IncidentIntent#RESOLVE} command.",
+      "type": "string"
+    },
+    "processDefinitionKey": {
+      "description": "the key of the process this incident belongs to. Can be <code>-1</code> if the incident\n    record is part of a {@link IncidentIntent#RESOLVE} command.",
+      "type": "number"
+    },
+    "elementId": {
+      "description": "the id of the element this incident belongs to. Can be empty if incident record is part\n    of a {@link IncidentIntent#RESOLVE} command.",
+      "type": "string"
+    },
+    "elementInstanceKey": {
+      "description": "the key of the element instance this incident belongs to. Can be <code>-1</code> if the\n    incident record is part of a {@link IncidentIntent#RESOLVE} command.",
+      "type": "number"
+    },
+    "jobKey": {
+      "description": "the key of the job this incident belongs to. Can be <code>-1</code> if the incident\n    belongs to no job or the incident record is part of a {@link IncidentIntent#RESOLVE}\n    command.",
+      "type": "number"
+    },
+    "variableScopeKey": {
+      "description": "the key of the variable scope on which the variables need to be updated. Can be <code>\n    -1</code> if the incident record is part of a {@link IncidentIntent#RESOLVE} command.",
+      "type": "number"
+    },
+    "processInstanceKey": {
+      "description": "the key of the corresponding process instance",
+      "type": "number"
+    }
+  },
+  "definitions": {
+    "ErrorType": {
+      "enum": [
+        "CALLED_DECISION_ERROR",
+        "CALLED_ELEMENT_ERROR",
+        "CONDITION_ERROR",
+        "DECISION_EVALUATION_ERROR",
+        "EXTRACT_VALUE_ERROR",
+        "IO_MAPPING_ERROR",
+        "JOB_NO_RETRIES",
+        "MESSAGE_SIZE_EXCEEDED",
+        "UNHANDLED_ERROR_EVENT",
+        "UNKNOWN"
+      ],
+      "type": "string"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
